@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class FoodAllergen {
+public class Allergen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +15,22 @@ public class FoodAllergen {
     @NotBlank(message = "Provide an allergen name")
     private String name;
 
-    @ManyToMany(mappedBy = "foodAllergens")
-    private Set<Meal> occurences;
+    @ManyToMany(mappedBy = "allergens")
+    private Set<Meal> meals;
 
-    public FoodAllergen() {
+    public Allergen() {
     }
 
-    public FoodAllergen(String name) {
-        this.name = name;
+    public static Allergen of(String name) {
+        Allergen allergen = new Allergen();
+        allergen.name = name;
+        return allergen;
+    }
+
+    public static Allergen withMeals(String name, Set<Meal> meals) {
+        Allergen allergen = of(name);
+        allergen.meals = meals;
+        return allergen;
     }
 
     public String getName() {
@@ -33,7 +41,7 @@ public class FoodAllergen {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FoodAllergen that = (FoodAllergen) o;
+        Allergen that = (Allergen) o;
         return name.equals(that.name);
     }
 
@@ -44,10 +52,10 @@ public class FoodAllergen {
 
     @Override
     public String toString() {
-        return "FoodAllergen{" +
+        return "Allergen{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", occurences=" + occurences +
+                ", meals=" + meals +
                 '}';
     }
 }

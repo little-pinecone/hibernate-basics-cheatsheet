@@ -19,22 +19,29 @@ public class Meal {
     private GlutenPresence glutenPresence;
 
     @ManyToMany
-    private Set<FoodAllergen> foodAllergens;
+    private Set<Allergen> allergens;
 
     @ManyToOne
     private Category category;
 
     public Meal() { }
 
-    public Meal(String name, GlutenPresence glutenPresence) {
-        this.name = name;
-        this.glutenPresence = glutenPresence;
+    public static Meal of(String name) {
+        Meal meal = new Meal();
+        meal.name = name;
+        return meal;
     }
 
-    public Meal(String name, GlutenPresence glutenPresence, Set<FoodAllergen> foodAllergens) {
-        this.name = name;
-        this.glutenPresence = glutenPresence;
-        this.foodAllergens = foodAllergens;
+    public static Meal withGlutenPresence(String name, GlutenPresence glutenPresence) {
+        Meal meal = of(name);
+        meal.glutenPresence = glutenPresence;
+        return meal;
+    }
+
+    public static Meal withAllergens(String name, GlutenPresence glutenPresence, Set<Allergen> allergens) {
+        Meal meal = withGlutenPresence(name, glutenPresence);
+        meal.allergens = allergens;
+        return meal;
     }
 
     public String getName() {
@@ -45,8 +52,12 @@ public class Meal {
         return glutenPresence;
     }
 
-    public Set<FoodAllergen> getFoodAllergens() {
-        return foodAllergens;
+    public Set<Allergen> getAllergens() {
+        return allergens;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     @Override
@@ -69,7 +80,7 @@ public class Meal {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", glutenPresence=" + glutenPresence +
-                ", foodAllergens=" + foodAllergens +
+                ", allergens=" + allergens +
                 ", category=" + category +
                 '}';
     }
