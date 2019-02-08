@@ -1,4 +1,7 @@
-package in.keepgrowing.hibernatebasicscheatsheet.meal.model;
+package in.keepgrowing.hibernatebasicscheatsheet.category;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import in.keepgrowing.hibernatebasicscheatsheet.meal.model.Meal;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +18,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Meal> meals;
 
     public Category() {
@@ -26,10 +30,23 @@ public class Category {
         return category;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Meal> getMeals() {
+        return meals;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
-                "meals=" + meals +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

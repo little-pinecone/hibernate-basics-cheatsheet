@@ -55,7 +55,6 @@ public class Allergen {
         return "Allergen{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", meals=" + meals +
                 '}';
     }
 }

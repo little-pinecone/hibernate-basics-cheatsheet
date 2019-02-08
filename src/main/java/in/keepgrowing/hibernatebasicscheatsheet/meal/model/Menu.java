@@ -1,5 +1,7 @@
 package in.keepgrowing.hibernatebasicscheatsheet.meal.model;
 
+import in.keepgrowing.hibernatebasicscheatsheet.category.Category;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
