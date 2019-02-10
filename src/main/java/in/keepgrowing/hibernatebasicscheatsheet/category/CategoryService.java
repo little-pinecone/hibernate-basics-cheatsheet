@@ -2,6 +2,7 @@ package in.keepgrowing.hibernatebasicscheatsheet.category;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,5 +16,9 @@ public class CategoryService {
 
     Optional<Category> findById(Long id) {
         return this.repository.findById(id);
+    }
+
+    List<Category> findAll() {
+        return repository.findAll();
     }
 }
