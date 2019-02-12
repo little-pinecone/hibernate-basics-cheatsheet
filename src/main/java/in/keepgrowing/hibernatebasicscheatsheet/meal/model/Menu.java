@@ -17,6 +17,10 @@ public class Menu {
 
     private LocalDate end;
 
+    @OneToMany
+    @JoinColumn(name = "menu_id")
+    private List<Category> categories;
+
     public Menu() {
     }
 
@@ -26,10 +30,6 @@ public class Menu {
         menu.end = end;
         return menu;
     }
-
-    @OneToMany
-    @JoinColumn(name = "menu_id")
-    private List<Category> categories;
 
     @Override
     public String toString() {

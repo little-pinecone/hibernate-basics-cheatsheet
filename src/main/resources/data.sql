@@ -12,3 +12,6 @@ values(1, 'Oatmeal', 1, 1);
 
 insert into meal (id, name, gluten_presence, category_id)
 values(2, 'Almond cookie', 0, 2);
+
+insert into meal (id, name, gluten_presence, category_id)
+values(3, 'Chocolate cookie', 0, 2);

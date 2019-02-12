@@ -1,5 +1,7 @@
 package in.keepgrowing.hibernatebasicscheatsheet.meal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
@@ -16,6 +18,7 @@ public class Allergen {
     private String name;
 
     @ManyToMany(mappedBy = "allergens")
+    @JsonIgnore
     private Set<Meal> meals;
 
     public Allergen() {

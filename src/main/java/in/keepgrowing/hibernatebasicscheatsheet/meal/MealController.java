@@ -19,7 +19,6 @@ public class MealController {
 
     @GetMapping
     public List<Meal> findAll() {
-        List<Meal> meals = this.service.findAll();
-        return meals;
+        return this.service.findAll();
     }
 }
