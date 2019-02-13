@@ -42,12 +42,6 @@ public class Meal {
         return meal;
     }
 
-    public static Meal withAllergens(String name, GlutenPresence glutenPresence, Set<Allergen> allergens) {
-        Meal meal = withGlutenPresence(name, glutenPresence);
-        meal.allergens = allergens;
-        return meal;
-    }
-
     public String getName() {
         return name;
     }
@@ -62,6 +56,10 @@ public class Meal {
 
     public Category getCategory() {
         return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
