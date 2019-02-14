@@ -2,7 +2,7 @@
 
 [![keep growing logo](readme-images/logo_250x60.png)](https://keepgrowing.in)
 
-Code examples for using Hibernate and JPA features.
+Code examples for using Hibernate and JPA features. The project was created solely for learning purposes and to verify code described in the [posts about Hibernate on keepgrowing.in](https://keepgrowing.in/tag/hibernate/).
 
 ## Getting Started
 
